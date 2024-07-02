@@ -7,7 +7,7 @@ import { DeezerApiService } from '../../deezer-api.service';
   styleUrl: './player.component.css'
 })
 export class PlayerComponent {
-  trackName = '';
+  trackName = 'Million Dollar';
   possibleSongs: any;
   playList: Array<any> = [];
   audioPlayer: any;
@@ -18,6 +18,7 @@ export class PlayerComponent {
 
 
   ngOnInit(): void {
+    this.retrieveTracks();
     this.deezerService.songsData.subscribe(data => {
       if (data){
         this.possibleSongs = data.data;
