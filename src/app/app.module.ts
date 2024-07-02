@@ -8,11 +8,13 @@ import { MaterialModule } from './material.module';
 import { PlayerComponent } from './pages/player/player.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { TruncatePipe } from './truncate.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayerComponent
+    PlayerComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
