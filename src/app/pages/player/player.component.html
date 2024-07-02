@@ -34,7 +34,13 @@
         </div>
     </div>
     <div class="media-footer">
-        <img src="{{(curPlaying) ? curPlaying.album.cover_small : ''}}" height="56"/>
+        <div class="footer-img">
+            <img src="{{(curPlaying) ? curPlaying.album.cover_small : ''}}" height="56"/>
+            <div class="footer-artist">
+                <h4>{{(curPlaying) ? curPlaying.title : ''}}</h4>
+                <p>{{(curPlaying) ? curPlaying.artist.name : ''}}</p>
+            </div>
+        </div>
         <audio #audioPlayer controls class="audio-panel" id="audio" autoplay>     
         </audio>
     </div>

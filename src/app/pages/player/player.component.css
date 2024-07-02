@@ -187,19 +187,43 @@
 }
 
 .media-footer {
+  gap: 1rem;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: black;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: black; /* Set the background color to black */
   padding: 10px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.footer-img {
+  display: flex;
+  align-items: center;
+  margin-right: auto; 
+  gap: 5px;
+}
 
+.footer-artist {
+  color: white; 
+}
+
+.footer-artist h4 {
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.footer-artist p {
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.media-footer audio {
+  margin: 0 auto;
+}
 
 .media-footer audio::-webkit-media-controls-panel {
   background-color: black; 
