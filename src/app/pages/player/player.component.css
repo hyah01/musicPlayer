@@ -64,8 +64,8 @@
 }
 
 .search-song {
-  height: 20rem;
-  max-height: 20rem;
+  height: 100%;
+  max-height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,6 +81,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 20px;
 }
 
 .search-container {
@@ -92,6 +93,7 @@
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+  padding: 15px 15px;
 }
 
 .search-item {
@@ -109,6 +111,10 @@
   color: rgb(156, 156, 156);
   padding-right: 10px;
 }
+.search-item:hover{
+  background-image: linear-gradient(rgb(255 255 255/15%) 0 0);
+  cursor: pointer;
+}
 
 .song-contain {
   height: 56px;
@@ -117,6 +123,7 @@
   align-items: center; 
   gap: 5px;
 }
+
 
 .song-name h3 {
   color: rgb(219, 219, 219);
@@ -132,8 +139,8 @@
 
 .playlist {
   padding-top: 5px;
-  height: 20rem;
-  max-height: 20rem;
+  height: 100%;
+  max-height: 45%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,7 +152,7 @@
 .playlist-container{
   color: white;
   width: 80%;
-  height: 20rem; 
+  height: 100%; 
   display: flex;
   flex-direction: column;
   background-color: rgba(0,0,0, 0.2);
@@ -166,6 +173,11 @@
   border-radius: 10px;
   margin-bottom: 10px; 
   padding: 10px;
+}
+
+.playlist-item:hover {
+  background-image: linear-gradient(rgb(255 255 255/15%) 0 0);
+  cursor: pointer;
 }
 
 .track-name{
