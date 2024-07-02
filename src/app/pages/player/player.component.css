@@ -73,8 +73,18 @@
   overflow-y: hidden; 
 }
 
-.search-container {
+.wrapper {
   width: 80%;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.2);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-container {
+  width: 100%;
   height: 100%; 
   display: flex;
   flex-wrap: wrap;
@@ -92,19 +102,105 @@
   align-items: center; 
   background-color: rgba(0,0,0, 0.2);
   border-radius: 10px;
+  justify-content:space-between;
+}
+
+.search-item p{
+  color: rgb(156, 156, 156);
+  padding-right: 10px;
+}
+
+.song-contain {
+  height: 56px;
+  width: 100%;
+  display: flex;
+  align-items: center; 
+  gap: 5px;
 }
 
 .song-name h3 {
+  color: rgb(219, 219, 219);
   padding: 0;
   margin: 0;
 }
 
-.play-list {
-  background-color: rgba(0,0,0, 0.2);
+.song-name p {
+  color: rgb(156, 156, 156);
+  padding: 0;
+  margin: 0;
+}
+
+.playlist {
+  padding-top: 5px;
   height: 20rem;
   max-height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0, 0.2);
+  overflow-y: hidden; 
+  overflow-x: hidden; 
+}
+
+.playlist-container{
+  color: white;
+  width: 80%;
+  height: 20rem; 
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0,0,0, 0.2);
+  border-radius: 10px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+  overflow-x: hidden; 
+}
+
+.playlist-item{
+  height: 56px;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: center; 
+  background-color: rgba(0,0,0, 0.2);
+  border-radius: 10px;
+  margin-bottom: 10px; 
+  padding: 10px;
+}
+
+.track-name{
+  padding: 0;
+  margin: 0;
+  align-items: center;
 }
 
 .media-footer {
+  display: flex;
+  justify-content: center;
+  background-color: black;
   position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: black; /* Set the background color to black */
+  padding: 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.media-footer audio::-webkit-media-controls-panel {
+  background-color: black; 
+  border: none;
+  outline: none;
+}
+
+.media-footer audio::-webkit-media-controls-play-button,
+.media-footer audio::-webkit-media-controls-volume-slider,
+.media-footer audio::-webkit-media-controls-mute-button,
+.media-footer audio::-webkit-media-controls-timeline,
+.media-footer audio::-webkit-media-controls-current-time-display,
+.media-footer audio::-webkit-media-controls-time-remaining-display,
+.media-footer audio::-webkit-media-controls-fullscreen-button {
+    filter: invert(100%);
 }

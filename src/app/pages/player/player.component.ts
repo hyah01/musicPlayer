@@ -11,8 +11,7 @@ export class PlayerComponent {
   possibleSongs: any;
   playList: Array<any> = [];
   audioPlayer: any;
-  index = 0;
-  curIndex = 0;
+  curPlaying: any = '';
   @ViewChild('audioPlayer') audioPlayerRef!: ElementRef<HTMLAudioElement>;
   constructor(private deezerService: DeezerApiService){}
   
@@ -28,16 +27,6 @@ export class PlayerComponent {
     })
   }
 
-  reload(){
-    this.deezerService.songsData.subscribe(data => {
-      if (data){
-        data;
-        this.possibleSongs = data.data;
-        this.audioPlayer = this.audioPlayerRef.nativeElement;
-        this.playList;
-      }
-    })
-  }
 
   retrieveTracks() {
     if (this.trackName != ''){
@@ -50,19 +39,20 @@ export class PlayerComponent {
       this.playList.push(song);
       console.log(this.playList)
       if (this.playList.length == 1){
-        this.loadTrack(song.preview);
+        this.loadTrack(song);
       }
-      this.possibleSongs = '';
-      this.reload();
+      //this.possibleSongs = [];
+      //this.trackName= '';
     }
   }
 
 
-  loadTrack(trackUrl: string){
-    this.audioPlayer.src = trackUrl;
+  loadTrack(track: any){
+    this.audioPlayer.src = track.preview;
     this.audioPlayer.load();
+    this.audioPlayer.volume = 0.1;
+    this.curPlaying = track;
   }
-
 
 
   play() {
@@ -73,4 +63,10 @@ export class PlayerComponent {
     this.audioPlayer.pause();
   }
 
+  getTime(song: any){
+    let minute = Math.floor(song / 60);
+    let second = song - minute * 60;
+
+    return `${minute}:${(second < 10)? "0"+second:second}`;
+  }
 }

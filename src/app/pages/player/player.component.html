@@ -6,31 +6,36 @@
         </div>
         <button (click)="retrieveTracks()"><i class="fa fa-music button-icon"></i></button>
     </div>
-    <div class="search-song">
+    <div class="search-song" >
+        <div class="wrapper">
         <div class="search-container">
             <div *ngFor="let song of possibleSongs" (click)="addTrack(song)" class="search-item">
-                <img src="{{song.album.cover_small}}">
-                <div class="song-name">
-                    <h3>{{song.title}}</h3>
-                    <h3>{{song.artist.name}}</h3>
+                <div class="song-contain">
+                    <img src="{{song.album.cover_small}}">
+                    <div class="song-name">
+                        <h3>{{song.title | truncate: 40 }}</h3>
+                        <p>{{song.artist.name}}</p>
+                    </div>
                 </div>
+                <p>{{getTime(song.duration)}}</p>
             </div>
         </div>
+        </div>
     </div>
-    <div class="search-song">
-        <div class="search-container">
-            <div *ngFor="let track of playList" (click)="loadTrack(track.link)" class="search-item">
+    <div class="playlist">
+        <div class="playlist-container">
+            <div *ngFor="let track of playList" (click)="loadTrack(track)" class="playlist-item">
                 <img src="{{track.album.cover_small}}">
-                <div class="song-name">
+                <div class="track-name">
                     <h3>{{track.title}}</h3>
-                    <h3>{{track.artist.name}}</h3>
+                    <p>{{track.artist.name}}</p>
                 </div>
             </div>
         </div>
     </div>
     <div class="media-footer">
-        <audio #audioPlayer controls>
-            
+        <img src="{{(curPlaying) ? curPlaying.album.cover_small : 2}}"/>
+        <audio #audioPlayer controls class="audio-panel" id="audio" autoplay>     
         </audio>
     </div>
 </div>
