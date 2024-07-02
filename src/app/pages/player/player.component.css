@@ -1,47 +1,110 @@
-.container {
-    .main-toolbar {
-      .spacer {
-        flex: 1 1 auto;
-      }
-      .toolbar-btn {
-        font-size: 16px;
-        margin-right: 5px;
-        cursor: pointer;
-      }
-    }
-  
-    .content {
-      .logo {
-        margin: 2.5rem;
-        text-align: center;
-        font-size: 24px;
-        color: #3f51b5;
-        .mat-icon {
-          height: 160px !important;
-          width: 160px !important;
-          font-size: 160px !important;
-        }
-      }
-    }
-  
-    .media-footer {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      .time-slider {
-        width: 100% !important;
-        margin-left: 20px;
-        margin-right: 20px;
-      }
-      .media-action-bar {
-        width: 100%;
-        padding: 2.5rem;
-        justify-content: center;
-        .mat-icon {
-          height: 48px !important;
-          width: 48px !important;
-          font-size: 48px !important;
-        }
-      }
-    }
+.music-player {
+  height: 100%;
+  background-image: linear-gradient(to bottom, #00cb1a, #039216, #01460a, #011b04, #000000);
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.search-bar input {
+  border-radius: 5px;
+  font-family: system-ui;
+  padding-left: 15px;
+  height: 1.8rem;
+}
+
+
+.input-container {
+  position: relative;
+  width: 15rem;
+  height: 1.8rem;
+}
+
+.input-container input {
+  width: 100%;
+  padding-left: 30px; 
+  box-sizing: border-box;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 16px; 
+  color: #aaa; 
+}
+
+.search-bar button {
+  height: 1.8rem;
+  width: 1.8rem;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none; 
+  background-color: #f0f0f0; 
+}
+
+.button-icon {
+  font-size: 16px; 
+}
+
+.search-bar button:hover {
+  cursor: pointer;
+  background-color: black;
+  .button-icon {
+    color: #00cb1a;
   }
+}
+
+.search-song {
+  height: 20rem;
+  max-height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0, 0.2);
+  overflow-y: hidden; 
+}
+
+.search-container {
+  width: 80%;
+  height: 100%; 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+.search-item {
+  height: 56px;
+  width: calc(50% - 5px);
+  display: flex;
+  gap: 10px;
+  align-items: center; 
+  background-color: rgba(0,0,0, 0.2);
+  border-radius: 10px;
+}
+
+.song-name h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.play-list {
+  background-color: rgba(0,0,0, 0.2);
+  height: 20rem;
+  max-height: 20rem;
+}
+
+.media-footer {
+  position: fixed;
+}
