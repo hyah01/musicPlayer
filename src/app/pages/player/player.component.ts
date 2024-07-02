@@ -9,34 +9,68 @@ import { DeezerApiService } from '../../deezer-api.service';
 export class PlayerComponent {
   trackName = '';
   possibleSongs: any;
-
+  playList: Array<any> = [];
+  audioPlayer: any;
+  index = 0;
+  curIndex = 0;
+  @ViewChild('audioPlayer') audioPlayerRef!: ElementRef<HTMLAudioElement>;
   constructor(private deezerService: DeezerApiService){}
+  
 
 
   ngOnInit(): void {
     this.deezerService.songsData.subscribe(data => {
       if (data){
         this.possibleSongs = data.data;
-        console.log(this.possibleSongs);
+        this.audioPlayer = this.audioPlayerRef.nativeElement;
+        this.playList;
       }
     })
   }
 
-  loadTrack() {
+  reload(){
+    this.deezerService.songsData.subscribe(data => {
+      if (data){
+        data;
+        this.possibleSongs = data.data;
+        this.audioPlayer = this.audioPlayerRef.nativeElement;
+        this.playList;
+      }
+    })
+  }
+
+  retrieveTracks() {
     if (this.trackName != ''){
       this.deezerService.getSongs(this.trackName)
     }
   }
 
+  addTrack(song: any){
+    if (song){
+      this.playList.push(song);
+      console.log(this.playList)
+      if (this.playList.length == 1){
+        this.loadTrack(song.preview);
+      }
+      this.possibleSongs = '';
+      this.reload();
+    }
+  }
 
 
-  @ViewChild('audioPlayer') audioPlayerRef!: ElementRef<HTMLAudioElement>;
+  loadTrack(trackUrl: string){
+    this.audioPlayer.src = trackUrl;
+    this.audioPlayer.load();
+  }
+
+
+
   play() {
-      const trackUrl = "https://cdns-preview-2.dzcdn.net/stream/c-21f96037bab31c028c62f1cb379cf024-4.mp3";
-      const audioPlayer = this.audioPlayerRef.nativeElement;
-      audioPlayer.src = trackUrl;
-      audioPlayer.load();
-      audioPlayer.play();
+      this.audioPlayer.play();
+  }
+
+  pause() {
+    this.audioPlayer.pause();
   }
 
 }
